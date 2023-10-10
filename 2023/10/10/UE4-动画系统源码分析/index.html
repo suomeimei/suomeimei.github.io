@@ -42,8 +42,24 @@
             2023-10-10
         </div>
         <div class="post-md">
-            <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">UCharacterMovementComponent::MaintainHorizontalGroundVelocity</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (Velocity.Z != <span class="number">0.f</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (bMaintainHorizontalGroundVelocity)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// Ramp movement already maintained the velocity, so we just want to remove the vertical component.</span></span><br><span class="line">			Velocity.Z = <span class="number">0.f</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// Rescale velocity to be horizontal but maintain magnitude of last update.</span></span><br><span class="line">			Velocity = Velocity.<span class="built_in">GetSafeNormal2D</span>() * Velocity.<span class="built_in">Size</span>();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+            <p>代码段测试</p>
+<pre><code class="cpp">void UCharacterMovementComponent::MaintainHorizontalGroundVelocity()
+&#123;
+    if (Velocity.Z != 0.f)
+    &#123;
+        if (bMaintainHorizontalGroundVelocity)
+        &#123;
+            // Ramp movement already maintained the velocity, so we just want to remove the vertical component.
+            Velocity.Z = 0.f;
+        &#125;
+        else
+        &#123;
+            // Rescale velocity to be horizontal but maintain magnitude of last update.
+            Velocity = Velocity.GetSafeNormal2D() * Velocity.Size();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 
         </div>
 
